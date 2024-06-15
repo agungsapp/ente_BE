@@ -1,4 +1,4 @@
-div class="row gy-5">
+<div class="row gy-5">
     @foreach ($filteredTempatMakan as $tempat)
     <div class="col-lg-4 col-md-6">
         <div class="culinary-item">

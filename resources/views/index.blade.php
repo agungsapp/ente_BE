@@ -215,7 +215,11 @@
                                     <input type="hidden" name="warungmakan_id" value="{{ $tempat->id }}">
                                     @php
                                         // cek sudah ada di bookmark apa belum
-                                        $bookmarked = \App\Models\Bookmark::where('user_id', Auth::user()->id)->where('warungmakan_id', $tempat->id)->first();
+                                        if (Auth::check()) {
+                                            $bookmarked = \App\Models\Bookmark::where('user_id', Auth::user()->id)->where('warungmakan_id', $tempat->id)->first();
+                                        } else {
+                                            $bookmarked = false;
+                                        }
                                     @endphp
                                     <button type="submit" class="btn btn-icon-only p-0"><i class="bi bi-bookmark{{ $bookmarked != NULL ? '-check-fill' : '' }}"></i></button>
                                 </form>
